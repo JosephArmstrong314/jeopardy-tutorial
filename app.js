@@ -158,6 +158,17 @@ function addCategory(category) {
 
 jeopardyCategories.forEach(category => addCategory(category))
 
+const resetButton = document.getElementById("button")
+resetButton.addEventListener("click", resetGame)
+
+scoreDisplay.innerHTML = "0"
+
+
+
+function resetGame() {
+    location.reload()
+}
+
 function flipCard() {
     this.innerHTML = ""
     this.style.fontSize = "15px"
@@ -192,7 +203,7 @@ function getResult() {
     allCards.forEach(card => card.addEventListener("click", flipCard))
 
     const cardOfButton = this.parentElement
-    
+
     if (cardOfButton.getAttribute("data-correct") == this.innerHTML) {
         score = score + parseInt(cardOfButton.getAttribute("data-value"))
         scoreDisplay.innerHTML = score
